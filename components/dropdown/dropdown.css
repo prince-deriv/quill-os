@@ -1,0 +1,29 @@
+.quill-container {
+    width: 100%;
+    align-items: center;
+    font-family: var(--core-fontFamily-ibmPlex-sans);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    /* Size */
+    padding-inline: var(--component-field-spacing-padding-md);
+    height: var(--component-field-height-md);
+    border-radius: var(--component-field-border-radius-md);
+    gap: var(--core-spacing-800);
+  }
+
+  .quill-container .select2-selection .select2-selection__rendered {
+    font-size: var(--semantic-typography-body-md-regular-default-fontSize);
+    line-height: var(
+      --semantic-typography-body-md-regular-default-lineHeight
+    );
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .quill-dropdown-source {
+    width: 100%;
+    max-width: 320px;
+  }

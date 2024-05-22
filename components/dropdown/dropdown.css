@@ -1,29 +1,127 @@
-.quill-container {
-    width: 100%;
-    align-items: center;
-    font-family: var(--core-fontFamily-ibmPlex-sans);
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    /* Size */
-    padding-inline: var(--component-field-spacing-padding-md);
-    height: var(--component-field-height-md);
-    border-radius: var(--component-field-border-radius-md);
-    gap: var(--core-spacing-800);
-  }
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-  .quill-container .select2-selection .select2-selection__rendered {
-    font-size: var(--semantic-typography-body-md-regular-default-fontSize);
-    line-height: var(
-      --semantic-typography-body-md-regular-default-lineHeight
-    );
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background-color: var(--component-button-bg-black-secondary-hover);
+}
 
-  .quill-dropdown-source {
-    width: 100%;
-    max-width: 320px;
-  }
+.wrappers {
+  display: flex;
+  flex-direction: row;
+}
+
+.quill-dropdown-container {
+  width: 100%;
+  align-items: center;
+  font-family: var(--core-fontFamily-ibmPlex-sans);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+.quill-dropdown-container .select2-selection .select2-selection__rendered {
+  font-size: var(--semantic-typography-body-md-regular-default-fontSize) !important;
+  line-height: var(--semantic-typography-body-md-regular-default-lineHeight);
+  color: var(--semantic-color-text-black) !important;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.quill-dropdown-md .select2-container--default .select2-selection--single {
+  padding-inline: var(--component-field-spacing-padding-md);
+  height: var(--component-field-height-md) !important;
+  background-color: var(--component-button-bg-black-secondary-hover) !important;
+  border-radius: 8px !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+
+}
+.quill-dropdown-sm .select2-container--default .select2-selection--single {
+  padding-inline: var(--component-field-spacing-padding-md);
+  height: 32px !important;
+  background-color: var(--component-button-bg-black-secondary-hover) !important;
+  border-radius: 8px !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+
+}
+
+.select2-search {
+  display: none !important;
+}
+
+.select2-container--focus {
+  border: var(--component-field-border-width) solid black !important;
+  border-radius: 8px !important;
+}
+
+.select2-selection__choice {
+  padding-left: 0px !important;
+  background-color: transparent !important;
+  margin: 0px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  display: flex;
+  align-items: center;
+}
+
+.quill-dropdown-source-md {
+  width: 100%;
+  max-width: 320px;
+
+}
+
+.select2-dropdown {
+  margin-top: 4px;
+  border-radius: 8px !important;
+  padding: 8px;
+  border: none !important;
+}
+
+.select2-results__option {
+padding: 0px 12px!important;
+display: flex;
+align-items: center;
+border-radius: 4px !important;
+}
+
+/* Specific styles for medium dropdown options */
+.quill-dropdown-md .select2-results__option {
+  border-radius: var(--component-dropdownItem-border-radius) !important;
+  min-height: 48px !important;
+  padding-inline: var(--component-dropdownItem-spacing-padding-md) !important;
+  gap: var(--component-dropdownItem-spacing-gap-md);
+  background-color: var(--component-dropdownItem-bg-default);
+  align-items: center;
+  display: flex;
+  background: white;
+  color: black;
+}
+
+/* Specific styles for small dropdown options */
+.quill-dropdown-sm .select2-results__option {
+  border-radius: var(--component-dropdownItem-border-radius) !important;
+  min-height: 32px !important;
+  padding-inline: var(--component-dropdownItem-spacing-padding-md) !important;
+  gap: var(--component-dropdownItem-spacing-gap-md);
+  background-color: var(--component-dropdownItem-bg-default);
+  align-items: center;
+  display: flex;
+  background: white;
+  color: black;
+}
+
+.select2-results__option--highlighted {
+  background-color: var(--component-button-bg-black-secondary-hover) !important;
+  color: black !important;
+}
+
+.select2-container--default .select2-results__option--selected {
+  background-color: black !important;
+  color: white !important;
+}

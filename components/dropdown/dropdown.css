@@ -108,7 +108,6 @@ body {
 /* Disabled option */
 .select2-results__option--disabled {
   opacity: var(--opacity-disabled);
-  cursor: pointer;
   color: var(--component-textIcon-inverse-prominent);
 }
 /* Selected option */

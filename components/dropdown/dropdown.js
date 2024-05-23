@@ -3,6 +3,7 @@ $(document).ready(() => {
     {
       id: 0,
       text: "enhancement",
+      
     },
     {
       id: 1,
@@ -15,6 +16,7 @@ $(document).ready(() => {
     {
       id: 3,
       text: "invalid",
+      disabled: true,
     },
     {
       id: 4,

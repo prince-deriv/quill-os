@@ -6,7 +6,7 @@ body {
   font-family: 'IBM Plex Sans', sans-serif;
   background-color: var(--component-button-bg-black-secondary-hover);
 }
-
+/* The wrapper class in only for this html file and not part of dropdown */
 .wrappers {
   display: flex;
   flex-direction: row;
@@ -24,7 +24,7 @@ body {
 .quill-dropdown-container .select2-selection .select2-selection__rendered {
   font-size: var(--semantic-typography-body-md-regular-default-fontSize) !important;
   line-height: var(--semantic-typography-body-md-regular-default-lineHeight);
-  color: var(--semantic-color-text-black) !important;
+  color: var(--component-dropdownItem-icon-selectedWhite) !important;
   width: 100%;
   border: none;
   cursor: pointer;
@@ -56,7 +56,7 @@ body {
 }
 
 .select2-container--focus {
-  border: var(--component-field-border-width) solid black !important;
+  border: var(--component-field-border-width) solid var(--component-dropdownItem-icon-selectedWhite) !important;
   border-radius: 8px !important;
 }
 
@@ -90,44 +90,32 @@ align-items: center;
 border-radius: 4px !important;
 }
 
-/* Specific styles for medium dropdown options */
-.quill-dropdown-md .select2-results__option {
+.select2-results__option {
   border-radius: var(--component-dropdownItem-border-radius) !important;
-  min-height: 48px !important;
-  padding-inline: var(--component-dropdownItem-spacing-padding-md) !important;
+ padding-inline: var(--component-dropdownItem-spacing-padding-md) !important;
   gap: var(--component-dropdownItem-spacing-gap-md);
   background-color: var(--component-dropdownItem-bg-default);
   align-items: center;
   display: flex;
-  background: white;
-  color: black;
-}
-
-/* Specific styles for small dropdown options */
-.quill-dropdown-sm .select2-results__option {
-  border-radius: var(--component-dropdownItem-border-radius) !important;
-  min-height: 32px !important;
-  padding-inline: var(--component-dropdownItem-spacing-padding-md) !important;
-  gap: var(--component-dropdownItem-spacing-gap-md);
-  background-color: var(--component-dropdownItem-bg-default);
-  align-items: center;
-  display: flex;
-  background: white;
-  color: black;
+  background: var(--component-dropdownItem-label-color-selected) !important;
+  color: var(--component-textIcon-inverse-prominent) !important;
 }
 
 .select2-results__option--highlighted {
   background-color: var(--component-button-bg-black-secondary-hover) !important;
-  color: black !important;
+  color: var(--component-textIcon-inverse-prominent) !important;
 }
+.select2-results__option--disabled {
+  opacity: var(--opacity-disabled);
 
+}
 .select2-container--default .select2-results__option--selected {
-  background-color: black !important;
-  color: white !important;
+  background-color: var(--component-dropdownItem-icon-selectedWhite) !important;
+  color: var(--component-dropdownItem-label-color-selected) !important;
 }
-.select2-results__option--sm {
-  min-height: 32px !important;
+.select2-results__option.select2-results__option--sm {
+  min-height: var(--component-dropdownItem-height-item-sm);
 }
-.select2-results__option--md {
-  min-height: 48px !important;
+.select2-results__option.select2-results__option--md{
+  min-height: var(--component-dropdownItem-height-item-md);
 }

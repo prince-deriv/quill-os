@@ -37,5 +37,16 @@ $(document).ready(() => {
   });
   $("#test1").select2({
     data: data,
+    templateResult: function (data, container) {
+      $(container)
+        .addClass("select2-results__option--sm")
+        .removeClass("select2-results__option--selected");
+
+      if (data.selected) {
+        $(container).addClass("select2-results__option--selected");
+      }
+
+      return data.text;
+    },
   });
 });

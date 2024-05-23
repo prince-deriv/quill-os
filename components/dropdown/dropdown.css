@@ -125,3 +125,9 @@ border-radius: 4px !important;
   background-color: black !important;
   color: white !important;
 }
+.select2-results__option--sm {
+  min-height: 32px !important;
+}
+.select2-results__option--md {
+  min-height: 48px !important;
+}

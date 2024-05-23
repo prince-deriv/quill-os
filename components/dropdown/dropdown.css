@@ -79,6 +79,7 @@ body {
 
 /*  Default style for option item > li */
 .select2-results__option {
+  font-family: var(--core-fontFamily-ibmPlex-sans);
   border-radius: var(--component-dropdownItem-border-radius) !important;
   padding-inline: var(--component-dropdownItem-spacing-padding-md) !important;
   gap: var(--component-dropdownItem-spacing-gap-md);

@@ -6,13 +6,14 @@ body {
   font-family: 'IBM Plex Sans', sans-serif;
   background-color: var(--component-button-bg-black-secondary-hover);
 }
+
 /* The wrapper class in only for this html file and not part of dropdown */
 .wrappers {
   display: flex;
   flex-direction: row;
 }
 
-                          /* Copy from here  */
+/* Copy from here  */
 
 /* Input container */
 .quill-dropdown-container {
@@ -44,6 +45,7 @@ body {
   align-items: center;
 
 }
+
 /* Input container for size sm */
 .quill-dropdown-sm .select2-container--default .select2-selection--single {
   padding-inline: var(--component-field-spacing-padding-md);
@@ -55,10 +57,12 @@ body {
   align-items: center;
 
 }
+
 /* Disable input search for default select dropdown*/
 .select2-search {
   display: none !important;
 }
+
 /* Enable border when dropdown is focussed */
 .select2-container--focus {
   border: var(--component-field-border-width) solid var(--component-dropdownItem-icon-selectedWhite) !important;
@@ -69,6 +73,7 @@ body {
   width: 100%;
   max-width: 320px;
 }
+
 /* Dropdown container > ul */
 .select2-dropdown {
   margin-top: var(--core-spacing-200);
@@ -90,13 +95,14 @@ body {
   color: var(--component-textIcon-inverse-prominent) !important;
   cursor: pointer;
 }
+
 /* Dropdown Option size for sm */
 .select2-results__option.select2-results__option--sm {
   min-height: var(--component-dropdownItem-height-item-sm);
 }
 
 /* Dropdown Option size for md */
-.select2-results__option.select2-results__option--md{
+.select2-results__option.select2-results__option--md {
   min-height: var(--component-dropdownItem-height-item-md);
 }
 
@@ -105,13 +111,28 @@ body {
   background-color: var(--component-button-bg-black-secondary-hover) !important;
   color: var(--component-textIcon-inverse-prominent) !important;
 }
+
 /* Disabled option */
 .select2-results__option--disabled {
   opacity: var(--opacity-disabled);
   color: var(--component-textIcon-inverse-prominent);
 }
+
 /* Selected option */
 .select2-container--default .select2-results__option--selected {
   background-color: var(--component-dropdownItem-icon-selectedWhite) !important;
   color: var(--component-dropdownItem-label-color-selected) !important;
+}
+
+/* arrow icon */
+.select2-selection__arrow {
+  position: relative !important;
+}
+
+.quill-input__icon.rotated {
+
+  transition-property: transform;
+  transition-timing-function: var(--core-motion-ease-400);
+  transition-duration: var(--core-motion-duration-200);
+  transform: rotate(180deg);
 }

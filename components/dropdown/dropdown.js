@@ -3,7 +3,6 @@ $(document).ready(() => {
     {
       id: 0,
       text: "enhancement",
-      
     },
     {
       id: 1,
@@ -51,4 +50,23 @@ $(document).ready(() => {
       return data.text;
     },
   });
+  $(".select2-selection__arrow > b").replaceWith(`
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 22" role="img" data-state="close" class="quill-input__rotate quill-input__icon">
+    <g>
+      <path d="m6.535 14.715-5.25-5.25c-.273-.246-.273-.656 0-.93.246-.246.656-.246.93 0L7 13.348l4.785-4.786c.246-.273.656-.273.93 0a.644.644 0 0 1 0 .903l-5.277 5.25a.6.6 0 0 1-.903 0"></path>
+    </g>
+    <defs>
+      <clipPath id="f43687b6c6d919677eabf8a2c671e282__a">
+        <path d="M0 0h14v22H0z"></path>
+      </clipPath>
+    </defs>
+  </svg>
+`);
+  $("#test, #test1")
+    .on("select2:open", function () {
+      $(".quill-input__icon").addClass("rotated");
+    })
+    .on("select2:close", function () {
+      $(".quill-input__icon").removeClass("rotated");
+    });
 });

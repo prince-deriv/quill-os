@@ -106,13 +106,11 @@
 /* arrow icon and animation */
 .select2-selection__arrow {
   position: relative !important;
-}
-
-.quill-input__icon.rotated {
-
   transition-property: transform;
   transition-timing-function: var(--core-motion-ease-400);
   transition-duration: var(--core-motion-duration-200);
-  transform: rotate(180deg);
 }
 
+.select2-container--open .select2-selection__arrow  {
+  transform: rotate(180deg);
+}

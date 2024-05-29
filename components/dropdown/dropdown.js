@@ -62,11 +62,4 @@ $(document).ready(() => {
     </defs>
   </svg>
 `);
-  $("#test, #test1")
-    .on("select2:open", function () {
-      $(".quill-input__icon").addClass("rotated");
-    })
-    .on("select2:close", function () {
-      $(".quill-input__icon").removeClass("rotated");
-    });
 });

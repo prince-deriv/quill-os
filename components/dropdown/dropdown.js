@@ -62,4 +62,37 @@ $(document).ready(() => {
     </defs>
   </svg>
 `);
+  // Example functions to add success or error classes
+  function addSuccessClass() {
+    $("#test")
+      .next(".select2-container")
+      .removeClass("select2-container--focus error")
+      .addClass("select2-container--focus-success success");
+  }
+  function addErrorClass() {
+    $("#test")
+      .next(".select2-container")
+      .removeClass(" select2-container--focus success")
+      .addClass("select2-container--focus-error error");
+  }
+  // Buttons to trigger success and error states
+  $("#triggerSuccess").on("click", addSuccessClass);
+  $("#triggerError").on("click", addErrorClass);
+
+  function addSuccessClassSm() {
+    $("#test1")
+    .next(".select2-container")
+    .removeClass("select2-container--focus error")
+    .addClass("success");
+  }
+
+  function addErrorClassSm() {
+    $("#test1")
+    .next(".select2-container")
+    .removeClass(" select2-container--focus success")
+    .addClass("error");
+  }
+  // Buttons to trigger success and error states
+  $("#triggerSuccessTest1").on("click", addSuccessClassSm);
+  $("#triggerErrorTest1").on("click", addErrorClassSm);
 });

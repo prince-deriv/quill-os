@@ -1,21 +1,45 @@
 const inputElement = document.getElementById($parameters.Id);
 
-// Handle Sizes
-const allowedSizes = ["sm", "md"];
+// Store Params
+if (typeof window.quill === "undefined") {
+  window.quill = {
+    dropdown: {},
+  };
+}
 
-const size = !allowedSizes.includes($parameters.size) ? "md" : $parameters.size;
+window.quill.dropdown[$parameters.Id] = {
+  size: $parameters.size,
+  items: $parameters.items,
+};
 
-$(inputElement).parent().addClass(`quill-dropdown-${size}`);
+const getSize = () => {
+  const size = window.quill.dropdown[$parameters.Id].size;
+  const allowedSizes = ["sm", "md"];
+  return !allowedSizes.includes(size) ? "md" : size;
+};
+
+$(inputElement).parent().addClass(`quill-dropdown-${getSize()}`);
 
 // Fetch Items from props
 const items = JSON.parse($parameters.items);
+
+const getSelectedItem = (selected) => {
+  const currentItems = JSON.parse(window.quill.dropdown[$parameters.Id].items);
+
+  if (currentItems.length > 0) {
+    const selectedItem = currentItems[selected];
+    return JSON.stringify(selectedItem);
+  }
+
+  return "";
+};
 
 $(inputElement)
   .select2({
     data: items,
     templateResult: function (data, container) {
       $(container)
-        .addClass(`select2-results__option--${size}`)
+        .addClass(`select2-results__option--${getSize()}`)
         .removeClass("select2-results__option--selected");
 
       const selectedOptionData = $(inputElement).select2("data")[0];
@@ -33,12 +57,7 @@ $(inputElement)
   })
   .on("select2:select", function (e) {
     const selected = e.currentTarget.value;
-
-    if (items.length > 0) {
-      const selectedItem = items[selected - 1];
-      const stringifiedObj = JSON.stringify(selectedItem);
-      $actions.TriggerOnChange(stringifiedObj);
-    }
+    $actions.TriggerOnChange(getSelectedItem(selected - 1));
   });
 
 // Apply Quill Icons in the dropdown arrow
@@ -67,3 +86,6 @@ items.forEach((e) => {
 if (currentActive) {
   $(inputElement).val(currentActive).trigger("change");
 }
+
+// Onload pass selected value
+$actions.TriggerOnLoad(getSelectedItem(currentActive - 1));

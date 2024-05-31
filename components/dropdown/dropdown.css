@@ -43,6 +43,7 @@ body {
   border: none !important;
   display: flex;
   align-items: center;
+
   &:hover {
     background-color: var(--component-button-bg-black-secondary-hover);
   }
@@ -57,6 +58,7 @@ body {
   border: none !important;
   display: flex;
   align-items: center;
+
   &:hover {
     background-color: var(--component-button-bg-black-secondary-hover);
   }
@@ -141,15 +143,16 @@ body {
 }
 
 /* Success class for input */
-.quill-dropdown-container .success {
+.quill-dropdown-success {
   background-color: var(--component-field-bg-fill-successDefault) !important;
   border-radius: var(--core-spacing-400) !important;
+  color: var(--component-textIcon-statusNormal-success);
   &:hover {
     background-color: var(--component-field-bg-fill-successHover) !important;
   }
+}
 
-  color: var(--component-textIcon-statusNormal-success);
-
+.quill-dropdown-container .select2-container--focus.quill-dropdown-success {
   &:focus,
   &:focus-within {
     border: var(--component-field-border-width) solid var(--semantic-color-green-solid-border-static-high) !important;
@@ -159,19 +162,36 @@ body {
 }
 
 /* Error class for input */
-.quill-dropdown-container .error {
+.quill-dropdown-container .quill-dropdown-error {
   background-color: var(--component-field-bg-fill-failDefault) !important;
   border-radius: var(--core-spacing-400) !important;
+  color: var(--component-textIcon-statusNormal-danger);
   &:hover {
     background-color: var(--component-field-bg-fill-failHover) !important;
   }
+}
 
-  color: var(--component-textIcon-statusNormal-danger);
-
+.quill-dropdown-container .select2-container--focus.quill-dropdown-error {
   &:focus,
   &:focus-within {
     border: var(--component-field-border-width) solid var(--semantic-color-red-solid-border-static-high) !important;
     background-color: var(--component-field-bg-fill-failFocus) !important;
     border-radius: var(--core-spacing-400) !important;
   }
+}
+
+.select2-results__option.align-center {
+  justify-content: center !important;
+}
+
+.select2-results__option.align-left {
+  justify-content: flex-start !important;
+}
+
+.quill-dropdown-container .text-align-start {
+  text-align: start;
+}
+
+.quill-dropdown-container .text-align-center {
+  text-align: center;
 }

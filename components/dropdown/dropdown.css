@@ -180,11 +180,11 @@ body {
   }
 }
 
-.select2-results__option.align-center {
+.select2-results__option.dropdown-align-center{
   justify-content: center !important;
 }
 
-.select2-results__option.align-left {
+.select2-results__option.dropdown-align-start{
   justify-content: flex-start !important;
 }
 

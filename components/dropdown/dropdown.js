@@ -1,3 +1,4 @@
+
 $(document).ready(() => {
   const data = [
     { id: 0, text: "enhancement" },
@@ -6,13 +7,14 @@ $(document).ready(() => {
     { id: 3, text: "invalid", disabled: true },
     { id: 4, text: "wontfix" },
   ];
-let textAlignment = 'start';
+let textAlignment = 'center';
   // Initialize Select2 with custom template
   function initializeSelect2(elementId, sizeClass) {
+
     $(`#${elementId}`).select2({
       data: data,
       templateResult: function (data, container) {
-        $(container).addClass(`select2-results__option--${sizeClass}`).removeClass('select2-results__option--selected');
+        $(container).addClass(`select2-results__option--${sizeClass} dropdown-align-${textAlignment}`).removeClass(`select2-results__option--selected`);
         if (data.selected) {
           $(container).addClass('select2-results__option--selected');
         }
@@ -42,6 +44,8 @@ let textAlignment = 'start';
 
   // Function to update text alignment
   function updateTextAlignment(elementId, alignment) {
+    textAlignment = alignment;
+    console.log('textAlignment',textAlignment);
     $(`#${elementId}`).next('.select2-container')
       .removeClass('text-align-start text-align-center')
       .addClass(`text-align-${alignment}`);

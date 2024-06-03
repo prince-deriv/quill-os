@@ -30,7 +30,7 @@ body {
 .quill-dropdown-container .select2-selection .select2-selection__rendered {
   font-size: var(--semantic-typography-body-md-regular-default-fontSize) !important;
   line-height: var(--semantic-typography-body-md-regular-default-lineHeight);
-  color: var(--component-dropdownItem-icon-selectedWhite) !important;
+  color: var(--component-field-label-color-default) !important;
   width: 100%;
   border: none;
   cursor: pointer;
@@ -40,7 +40,8 @@ body {
 .quill-dropdown-md .select2-container--default .select2-selection--single {
   padding-inline: var(--component-field-spacing-padding-md);
   height: var(--component-field-height-md) !important;
-  background-color: var(--core-color-opacity-black-75);
+  background-color: var(--component-field-bg-fill-default);
+  position: relative;
   border-radius: var(--core-borderRadius-400) !important;
   border: none !important;
   display: flex;
@@ -48,7 +49,7 @@ body {
   gap: var(--component-field-spacing-gap-sm);
 
   &:hover {
-    background-color: var(--component-button-bg-black-secondary-hover);
+    background-color: var(--component-field-bg-fill-hover);
   }
 }
 
@@ -56,14 +57,14 @@ body {
 .quill-dropdown-sm .select2-container--default .select2-selection--single {
   padding-inline: var(--component-field-spacing-padding-md);
   height: var(--component-field-height-sm) !important;
-  background-color: var(--core-color-opacity-black-75);
+  background-color: var(--component-field-bg-fill-default);
   border-radius: 8px !important;
   border: none !important;
   display: flex;
   align-items: center;
 
   &:hover {
-    background-color: var(--component-button-bg-black-secondary-hover);
+    background-color: var(--component-field-bg-fill-hover);
   }
 }
 
@@ -74,7 +75,7 @@ body {
 
 /* Enable border when dropdown is focussed */
 .select2-container--focus {
-  border: var(--component-field-border-width) solid var(--component-dropdownItem-icon-selectedWhite);
+  border: var(--component-field-border-width) solid var(--component-field-border-color-focus);
   border-radius: var(--core-spacing-400) !important;
 }
 
@@ -89,6 +90,7 @@ body {
   border-radius: var(--semantic-borderRadius-md) !important;
   padding: var(--core-spacing-400);
   border: none !important;
+  background-color: var(--component-dropdownList-bg) !important;
 }
 
 /*  Default style for option item > li */
@@ -97,11 +99,10 @@ body {
   border-radius: var(--component-dropdownItem-border-radius) !important;
   padding-inline: var(--component-dropdownItem-spacing-padding-md) !important;
   gap: var(--component-dropdownItem-spacing-gap-md);
-  background-color: var(--component-dropdownItem-bg-default);
+  background-color:var(--component-dropdownList-bg);
   align-items: center;
   display: flex;
-  background: var(--component-dropdownItem-label-color-selected) !important;
-  color: var(--component-textIcon-inverse-prominent) !important;
+  color: var(--component-textIcon-normal-default) !important;
   cursor: pointer;
 }
 
@@ -117,20 +118,23 @@ body {
 
 /* Hover option */
 .select2-results__option--highlighted {
-  background-color: var(--component-button-bg-black-secondary-hover) !important;
-  color: var(--component-textIcon-inverse-prominent) !important;
+  background-color: var(--component-dropdownList-bg) !important;
+  color: var(--component-textIcon-normal-default) !important;
+  &:hover {
+    background-color: var(--component-dropdownItem-bg-hover) !important;
+  }
 }
 
 /* Disabled option */
 .select2-results__option--disabled {
   opacity: var(--opacity-disabled);
-  color: var(--component-textIcon-inverse-prominent);
+  color: var(--component-textIcon-normal-default);
 }
 
 /* Selected option */
 .select2-container--default .select2-results__option--selected {
-  background-color: var(--component-dropdownItem-icon-selectedWhite) !important;
-  color: var(--component-dropdownItem-label-color-selected) !important;
+  background-color: var(--component-dropdownItem-bg-selected) !important;
+  color: var(--component-dropdownItem-label-color-selectedWhite) !important;
 }
 
 /* arrow icon and animation */
@@ -139,6 +143,7 @@ body {
   transition-property: transform;
   transition-timing-function: var(--core-motion-ease-400);
   transition-duration: var(--core-motion-duration-200);
+  fill: var(--component-textIcon-normal-prominent);
 }
 
 .select2-container--open .select2-selection__arrow {
@@ -218,4 +223,34 @@ body {
   font-size: var(--core-fontSize-50);
   color: var(--component-textIcon-statusNormal-danger);
   padding-inline: var(--component-field-spacing-padding-md);
+}
+
+/* Floating label */
+.quill-dropdown-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.quill-dropdown-container label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  color: black;
+  padding-left: 24px;
+}
+
+.quill-dropdown-container.focused label,
+.quill-dropdown-container.select2-container--open label {
+  top: 22px;
+  left: 0;
+  transform: translateY(-100%);
+  font-size: 12px;
+  color: black;
+}
+
+.quill-dropdown-field-marker{
+  color: var(--core-color-solid-red-900);
 }

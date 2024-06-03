@@ -35,13 +35,13 @@ $(document).ready(() => {
     const $container = $(`#${elementId}`).next('.select2-container');
     const $selection = $container.find('.select2-selection');
     const $iconContainer = $selection.find('.state-icon-container');
-
+  
     // Remove existing icons
     $iconContainer.remove();
-
+  
     // Create a new icon container
     const $newIconContainer = $('<span class="state-icon-container state-icon"></span>');
-
+  
     if (state === 'success') {
       $container.removeClass('quill-dropdown-error').addClass('quill-dropdown-success');
       $newIconContainer.html(successIcon);
@@ -49,10 +49,11 @@ $(document).ready(() => {
       $container.removeClass('quill-dropdown-success').addClass('quill-dropdown-error');
       $newIconContainer.html(errorIcon);
     }
-
+  
     // Insert the icon container before the arrow icon
     $selection.find('.select2-selection__arrow').before($newIconContainer);
   }
+  
 
   // Button event handlers for success and error states
   $('#triggerSuccess').on('click', () => updateStateClass('test', 'success'));
@@ -94,15 +95,27 @@ $(document).ready(() => {
     </svg>
   `);
 
-  // Add focus class to container on focus and blur
   $('.quill-dropdown-source').on('select2:open', function () {
-    $(this).closest('.quill-dropdown-container').addClass('focused select2-container--open');
+    $(this).closest('.quill-dropdown-container').addClass('focused label-focused');
   }).on('select2:close', function () {
-    $(this).closest('.quill-dropdown-container').removeClass('focused select2-container--open');
+    const $container = $(this).closest('.quill-dropdown-container');
+    if (!$(this).val()) {
+      $container.removeClass('focused label-focused');
+    } else {
+      $container.removeClass('focused');
+    }
   });
 
   // Trigger focus when clicking on the label
   $('.quill-dropdown-container label').on('click', function () {
     $(this).siblings('select').select2('open');
+  });
+
+  // Add transparent placeholder class if a label is present
+  $('.quill-dropdown-container label').each(function () {
+    const $select = $(this).siblings('select');
+    if ($select.length) {
+      $select.next('.select2-container').find('.select2-selection');
+    }
   });
 });

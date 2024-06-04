@@ -95,27 +95,18 @@ $(document).ready(() => {
     </svg>
   `);
 
-  $('.quill-dropdown-source').on('select2:open', function () {
-    $(this).closest('.quill-dropdown-md').addClass('focused quill-dropdown-labelled label-focused');
-  }).on('select2:close', function () {
-    const $container = $(this).closest('.quill-dropdown-md');
-    if (!$(this).val()) {
-      $container.removeClass('focused label-focused');
-    } else {
-      $container.removeClass('focused');
-    }
-  });
+  // Add label class to the container
+  if ($('#has-label').length  ) {
+    $('.quill-dropdown-source').on('select2:open', function () {
+      $(this).closest('.quill-dropdown-md').addClass('focused label-focused');
+    }).on('select2:close', function () {
+      const $container = $(this).closest('.quill-dropdown-md');
+      if (!$(this).val()) {
+        $container.removeClass('focused label-focused');
+      } else {
+        $container.removeClass('focused');
+      }
+    });
+  }
 
-  // Trigger focus when clicking on the label
-  $('.quill-dropdown-md label').on('click', function () {
-    $(this).siblings('select').select2('open');
-  });
-
-  // Add transparent placeholder class if a label is present
-  $('.quill-dropdown-md label').each(function () {
-    const $select = $(this).siblings('select');
-    if ($select.length) {
-      $select.next('.select2-container').find('.select2-selection');
-    }
-  });
 });

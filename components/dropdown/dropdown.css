@@ -229,9 +229,7 @@ body {
 .quill-dropdown-md .select2-selection__placeholder {
   color: transparent !important;
 }
-.select2-container--open .select2-selection__placeholder {
-  color: var(--component-field-label-color-disabled) !important;
-}
+
 .focused .select2-selection__placeholder {
   color: var(--component-field-label-color-disabled) !important;
 }
@@ -250,9 +248,14 @@ body {
   color: var(--component-field-label-color-default);
   padding-left: 24px;
 }
-
-.quill-dropdown-container.label-focused label,
-.quill-dropdown-container.select2-container--open label {
+.quill-dropdown-container .icon-wrapper {
+ 
+  position: absolute;
+  padding: 16px;
+ 
+}
+.quill-dropdown-container.label-focused label
+ {
   top: 26px;
   left: 0;
   margin-bottom: 8px;
@@ -266,7 +269,7 @@ body {
 }
 
 /* style for labelled text */
-.quill-dropdown-labelled .select2-selection__rendered{
+.quill-dropdown-container.label-focused .select2-selection__rendered{
   position: relative;
   top : 6px !important;
 }

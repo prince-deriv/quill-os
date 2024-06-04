@@ -96,9 +96,9 @@ $(document).ready(() => {
   `);
 
   $('.quill-dropdown-source').on('select2:open', function () {
-    $(this).closest('.quill-dropdown-container').addClass('focused label-focused');
+    $(this).closest('.quill-dropdown-md').addClass('focused quill-dropdown-labelled label-focused');
   }).on('select2:close', function () {
-    const $container = $(this).closest('.quill-dropdown-container');
+    const $container = $(this).closest('.quill-dropdown-md');
     if (!$(this).val()) {
       $container.removeClass('focused label-focused');
     } else {
@@ -107,12 +107,12 @@ $(document).ready(() => {
   });
 
   // Trigger focus when clicking on the label
-  $('.quill-dropdown-container label').on('click', function () {
+  $('.quill-dropdown-md label').on('click', function () {
     $(this).siblings('select').select2('open');
   });
 
   // Add transparent placeholder class if a label is present
-  $('.quill-dropdown-container label').each(function () {
+  $('.quill-dropdown-md label').each(function () {
     const $select = $(this).siblings('select');
     if ($select.length) {
       $select.next('.select2-container').find('.select2-selection');

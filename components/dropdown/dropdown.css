@@ -233,14 +233,14 @@ body {
 .focused .select2-selection__placeholder {
   color: var(--component-field-label-color-disabled) !important;
 }
-.quill-dropdown-container {
+/*.quill-dropdown-container {
   position: relative;
   margin-bottom: 1rem;
-}
+}*/
 
 .quill-dropdown-container label {
   position: absolute;
-  top: 30%;
+  top: 28px;
   left: 0;
   transform: translateY(-50%);
   transition: all 0.3s ease;
@@ -272,4 +272,4 @@ body {
 .quill-dropdown-container.label-focused .select2-selection__rendered{
   position: relative;
   top : 6px !important;
-}
+} 

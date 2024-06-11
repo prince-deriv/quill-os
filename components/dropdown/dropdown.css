@@ -235,10 +235,6 @@ body {
 .focused .select2-selection__placeholder {
   color: var(--component-field-label-color-disabled) !important;
 }
-/*.quill-dropdown-container {
-  position: relative;
-  margin-bottom: 1rem;
-}*/
 
 .quill-dropdown-container label {
   position: absolute;
@@ -279,6 +275,7 @@ body {
 } 
 .quill-icon-container {
   display: flex;
+  fill : var(--component-textIcon-normal-prominent);
 
 }
 
